@@ -28,18 +28,21 @@ public class UsingStacksSuitorsLab implements Runnable {
 		System.out.println("String1 is \"" + s1 + "\"");
 		System.out.println("String2 is \"" + s2 + "\"");
 		
+		System.out.println("----------Iterative Reversing-----------");
 		System.out.print(s1 + " reversed is: ");
 		printReverse(s1);
 		System.out.println();
 		System.out.print(s2 + " reversed is: ");
 		printReverse(s2);
 		
+		System.out.println("\n----------Recursive Reversing-----------");
+		System.out.print(s1 + " reversed is: ");
 	    recPrintReverse(s1);
-		System.out.println();
+	    System.out.print("\n" + s2 + " reversed is: ");
 		recPrintReverse(s2);
-		System.out.println();
 		
-		/*
+		System.out.println("\n----------Is Palindrome Testing-----------");
+		
 		System.out.println(s1 + " is a palindrome: " + isPalindrome(s1));
 		System.out.println(s2 + " is a palindrome: " + isPalindrome(s2));
 		
@@ -53,7 +56,7 @@ public class UsingStacksSuitorsLab implements Runnable {
 		
 		n = 10;
 		System.out.println("For " + n + " suitors, stand in place:" + findPlaceToStand(n));
-		*/
+		
 	} 
 		
 	/*****************/
@@ -83,47 +86,73 @@ public class UsingStacksSuitorsLab implements Runnable {
 		}
 	}
 	
-	/*
-	 * 
-	 * 
-	 * */
+	/* *
+	*<h4>Description:</h4> 
+	*<br>
+	*<p>
+	* 
+	*</p>
+	*@param target
+	*@see printReverse
+	* */
 	public static void recPrintReverse(String target) {
-		//todo
+		if(target.length() <= 1){
+			System.out.print(target + " ");
+		}else{
+			recPrintReverse(target.substring(1));
+			System.out.print(target.charAt(0) + " ");
+		}
 	}
 	
-	/*
-	 * 
-	 * 
-	 * 
-	 * */
+	/* *
+	*<h4>Description:</h4> 
+	*<br>
+	*<p>
+	* 
+	*</p>
+	*@param
+	*@see
+	* */
 	public static boolean isPalindrome(String input) {
-		//todo: use a stack
+		Stack<Character> reverseString = new Stack<Character>();
 	}
 
-	/*
-	 * 
-	 * 
-	 * 
-	 * */
+	/* *
+	*<h4>Description:</h4> 
+	*<br>
+	*<p>
+	* 
+	*</p>
+	*@param
+	*@see
+	* */
 	public static boolean isPalindromeRec(String sentence)	{
 	  	//todo
 	}
 	
-	/*
-	 * 
-	 * 
-	 * */
+	/* *
+	*<h4>Description:</h4> 
+	*<br>
+	*<p>
+	* 
+	*</p>
+	*@param
+	*@see
+	* */
 	public static int findPlaceToStand(int numSuitors) {
 		//todo
 		return -1;
 	}	
 
-	/*
-	 * 
-	 * 
-	 * 
-	 * 
-	 * */
+	/* *
+	*<h4>Description:</h4> 
+	*<br>
+	*<p>
+	* 
+	*</p>
+	*@param
+	*@see
+	* */
 	public static boolean buildThreadQueue() {	//returns true upon success
 		Queue<Thread> q = new LinkedList<Thread>(); //comment this out and use your own Queue
 		
