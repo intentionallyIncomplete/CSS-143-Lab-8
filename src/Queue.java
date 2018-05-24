@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class Queue<T> {
+public class Queue {
 
 	
 	public static void main(String[] args){
@@ -10,8 +10,8 @@ public class Queue<T> {
 		q.push('a');
 		q.push('c');
 		q.push('e');
-		//a.push('c');
-		//a.push('a');
+		q.push('c');
+		q.push('a');
 		q.push('r');
 		System.out.println("Size : " + q.size());
 		while(!q.isEmpty()) {
