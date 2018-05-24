@@ -7,57 +7,97 @@
 
 public class LLStack {
 
-	private Node head;
+	private Node head;	
 
-	// Constructor with no parameters for outer class
 	public LLStack( ) {
-		// to do
+		head = null;
 	}
-
-	// This is an inner class specifically utilized for LLStack class,
-	// thus no setter or getters are needed
+	/************************/
+	/*BEGIN NODE INNER CLASS*/
+	/************************/
 	private class Node  {
 		private Object data;
 		private Node next;
 
-		// Constructor with no parameters for inner class
+		/*
+		 * 
+		 * 
+		 * */
 		public Node(){
-			// to do
-			// to do
+			data = null;
+			next = null;
 		}
-		// Parametrized constructor for inner class
+
+		/*
+		 * 
+		 * 
+		 * */
 		public Node (Object newData, Node nextLink) {
-			// to do: Data part of Node is an Object
-			// to do:  Link to next node is a type Node
+			data = newData;
+			next = nextLink;
+		}
+	} //end Node class
+	
+	/*****************************/
+	/*BEING LLSTACK CLASS METHODS*/
+	/*****************************/
+	
+	/*
+	 * <h4>Description:</h4><br><p>
+	 * 
+	 * </p> 
+	 * 
+	 * @param itemData
+	 * */
+	public void addToStart(Object itemData) {
+		head = new Node(itemData, head);
+	}
+	/*
+	 * <h4>Description:</h4><br><p>Removes the head node and returns true if the list contains at
+	 * least one node. Returns false if the list is empty.
+	 * </p>
+	 * 
+	 */
+	public boolean deleteHead( ) {
+		if(head != null){
+			head = head.next;
+			return true;
+		}else{
+			return false;
 		}
 	}
 
-	// Adds a node as the first node element at the start of the list with the specified data.
-	public void addToStart(Object itemData) {
-		// to do 
-		// NOTE: the logic here could be implemented in a single line,
-		// but not required to be a one liner.
-	}
-
-	// Removes the head node and returns true if the list contains at
-	// least one node. Returns false if the list is empty.
-	public boolean deleteHead( ) {
-		// to do
-	}
-
-	// Returns the size of linked list by traversing the list
-	public int size( ) {
-		// to do
+	/*
+	 * Returns the size of linked list by traversing the list
+	 */
+	public int size() {		
+		int count = 0;
+		Node currentNodePosition = head;
+		while(currentNodePosition != null){
+			count++;
+			currentNodePosition = currentNodePosition.next;
+		}
 		return count;
 	}
 
-	// Finds if there is match for the given object
+	/*
+	 * 
+	 * 
+	 * */
 	public boolean contains(Object item) {
-		// to do
+		return (findData(item)) != null;
 	}
 
-	// Finds the first node containing the target item, and returns a
-	// reference to that node. Return null if target not found.
+	/*
+	 * <h4>Description:</h4><br>
+	 * <p>
+	 * Finds the first node containing the target item, and returns a
+	 * reference to that node. Return null if target not found.
+	 * </p>
+	 * 
+	 * @param target
+	 * @see contains(Object item){}
+	 */
 	private Node findData(Object target) {
 		Node current = head;
 		Object itemAtPosition;
@@ -68,7 +108,7 @@ public class LLStack {
 				return current;
 			current = current.next;
 		}
-		return null;            // Target not found!
+		return null; //item not found, position is null
 	}
 
 
@@ -91,16 +131,26 @@ public class LLStack {
 		return retValue;
 	}
 
-
+	/*
+	 * <h4>Description:</h4><br>
+	 * <p> 
+	 * </p>
+	 * 
+	 * */
 	public boolean isEmpty( ) {
-		// to do
+		return (head == null);
 	}
 
 	public void clear( ) {
-		// to do
+		head = null;
 	}
-	// For two lists to be equal they must contain the same data items in
-	// the same order. The equals method of T is used to compare data items.
+	/*
+	 * <h4>Description:</h4><br>
+	 * <p>For two lists to be equal they must contain the same data items in
+	 * the same order. The equals method of T is used to compare data items.
+	 * </p>
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	public boolean equals(Object otherObject) {
 		if (otherObject == null)
 			return false;
@@ -120,11 +170,13 @@ public class LLStack {
 				position = position.next;
 				otherPosition = otherPosition.next;
 			}
-			return true;      // objects are the same
+			return true; //objects are equivalent
 		}
 	}
 
-	// There is no need to modify the driver
+	/**************************************/
+	/*BEING DRIVER (NO MODIFICATIONS MADE)*/
+	/**************************************/
 	public static void main(String[] args) {
 
 		// input data for testing
@@ -208,5 +260,3 @@ public class LLStack {
 	}
 
 }
-
-
