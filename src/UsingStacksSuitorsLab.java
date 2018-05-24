@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -165,29 +164,23 @@ public class UsingStacksSuitorsLab implements Runnable {
 	 *@see
 	 * */
 	public static int findPlaceToStand(int numSuitors) {
-		List<Integer> suitorsPosition = new LinkedList<Integer>();
-		int index = 0;
+		Queue<Integer> suitorsPosition = new LinkedList<Integer>();
 		int count = 0;
-		for(int i=0; i<numSuitors;i++){
+		int someSuitor = 0;
+		for(int i=0;i<numSuitors;i++){
 			suitorsPosition.add(i);
 		}
-		while(suitorsPosition.size() != 1) {
-			index = index + 1;
-			count = count + 1;
 
-			int nextSuitor = suitorsPosition.get(index);
-
-			if (count == 3) {
-				suitorsPosition.remove(index - 1);
-				count = 0;
-			}
-
-			if (index == suitorsPosition.size()) {
-				index = 0;
+		while(suitorsPosition.size() > 1){
+			count++;
+			
+			if(count == 3){
+				someSuitor = suitorsPosition.remove();
+				count = 0;			
 			}
 		}
-		return suitorsPosition.indexOf(index);
-	}
+		return someSuitor;
+	}	
 
 	/* *
 	 *<h4>Description:</h4> 
